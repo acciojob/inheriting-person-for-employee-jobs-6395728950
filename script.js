@@ -1,28 +1,29 @@
 // complete this js code
+// Person constructor function
 function Person(name, age) {
-    this.name = name;
-    this.age = age;
+  this.name = name;
+  this.age = age;
 }
 
-// Method for greeting
-Person.prototype.greet = function() {
-    console.log(`Hello, my name is ${this.name}, I am ${this.age} years old.`);
+Person.prototype.greet = function () {
+  console.log(`Hello, my name is ${this.name}, I am ${this.age} years old.`);
 };
 
-// Constructor function for Employee that inherits from Person
-function Employee(name, age, jobTitle) {
-    // Call the Person constructor to initialize name and age
-    Person.call(this, name, age);
-    this.jobTitle = jobTitle;
+// Employee constructor function (inherits from Person)
+function Employee(name, age, title) {
+  Person.call(this, name, age); // Call Person constructor
+  this.jobTitle = title;
 }
 
-// Inherit the prototype of Person
+// Inherit from Person prototype
 Employee.prototype = Object.create(Person.prototype);
-// Employee.prototype.constructor = Employee;
+Employee.prototype.constructor = Employee;
 
-// Method for job greeting
-Employee.prototype.jobGreet = function() {
-    console.log(`Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`);
+// Add jobGreet method
+Employee.prototype.jobGreet = function () {
+  console.log(
+    `Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`
+  );
 };
 
  
