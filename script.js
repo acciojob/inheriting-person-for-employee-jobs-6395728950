@@ -1,30 +1,31 @@
 // complete this js code
-class Person{
- 
-constructor(name, age) {
-	this.name = name;
-	this.age=age;
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
 }
-	greet(){
-		console.log(`Hello, my name is ${name},I am ${age} years old.`);
-	}
+
+// Method for greeting
+Person.prototype.greet = function() {
+    console.log(`Hello, my name is ${this.name}, I am ${this.age} years old.`);
 };
-class Employee extends Person{
+
+// Constructor function for Employee that inherits from Person
+function Employee(name, age, jobTitle) {
+    // Call the Person constructor to initialize name and age
+    Person.call(this, name, age);
+    this.jobTitle = jobTitle;
+}
+
+// Inherit the prototype of Person
+Employee.prototype = Object.create(Person.prototype);
+Employee.prototype.constructor = Employee;
+
+// Method for job greeting
+Employee.prototype.jobGreet = function() {
+    console.log(`Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`);
+};
+
  
-	constructor(name, age, jobTitle) {
-		 super(name,age);
-		this.jobTitle = jobTitle;
-	}
-	jobGreet(){
-		console.log(`Hello, my name is ${name},I am ${age} years old, and my job title is ${jobTitle}`);
-	}
-};
-
-// const person  = new Person("Alice",25);
-// person.greet();
-
-// const employee  = new Employee("Bob",30,"Manager");
-// employee.jobGreet();
  
 
 // Do not change code below this line
