@@ -18,7 +18,7 @@ function Employee(name, age, jobTitle) {
 
 // Inherit the prototype of Person
 Employee.prototype = Object.create(Person.prototype);
-Employee.prototype.constructor = Employee;
+// Employee.prototype.constructor = Employee;
 
 // Method for job greeting
 Employee.prototype.jobGreet = function() {
