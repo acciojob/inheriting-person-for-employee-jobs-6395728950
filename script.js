@@ -1,8 +1,7 @@
 // complete this js code
 class Person{
-	let name;
-	let age;
-function Person(name, age) {
+ 
+constructor(name, age) {
 	this.name = name;
 	this.age=age;
 }
@@ -11,12 +10,9 @@ function Person(name, age) {
 	}
 };
 class Employee extends Person{
-	let  name;
-	let age;
-	let jobTitle;
-	function Employee(name, age, jobTitle) {
-		this.name =name;
-		this.age = age;
+ 
+	constructor(name, age, jobTitle) {
+		 super(name,age);
 		this.jobTitle = jobTitle;
 	}
 	jobGreet(){
